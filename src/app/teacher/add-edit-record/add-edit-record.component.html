@@ -1,0 +1,43 @@
+<div class="h-100 d-flex flex-column align-items-center gap-3 pt-5 mb-6">
+    <div mat-dialog-title>
+        <h1>Add record</h1>
+    </div>
+
+    <form [formGroup]="recordFrom" (ngSubmit)="onFormSubmit()">
+        <div mat-dialog-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Roll No</mat-label>
+                    <input matInput type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                        formControlName="rollNumber" required>
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name" required>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput type="date" formControlName="dateOfBirth" required>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Score</mat-label>
+                    <input matInput type="number" oninput="this.value=this.value.replace(/[^0-9]/g,'');" min="0"
+                        max="100" formControlName="score" required>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="d-flex gap-3 ">
+            <a href="list" color="warn" class="flex-grow-1" mat-raised-button>Cancel</a>
+            <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+    </form>
+
+</div>
